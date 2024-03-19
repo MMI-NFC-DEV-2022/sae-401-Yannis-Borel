@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import AfficheMaison from '@/components/AfficheMaison.vue';
+  import AfficheFilms from '@/components/AfficheFilms.vue';
 </script>
 
 <template>
   <div class="about">
     <h1>This is an about page</h1>
   </div>
-  <AfficheMaison />
+  <AfficheFilms />
 </template>

@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { ref } from "@vue/reactivity";
-import AfficheMaison from "@/components/AfficheMaison.vue";
+import AfficheFilms from "@/components/AfficheFilms.vue";
 import { FormKit } from "@formkit/vue";
 import { supabase } from "@/supabase";
 import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
-const maison = ref ({});
+const films = ref ({});
 const route = useRoute('/maisons/edit/[[id]]');
 
-async function upsertMaison(dataForm: any, node: { setErrors: (arg0: any[]) => void; }) {
-    const { data, error } = await supabase.from("Maison").upsert(dataForm).select("id");
+async function upsertFilms(dataForm: any, node: { setErrors: (arg0: any[]) => void; }) {
+    const { data, error } = await supabase.from("Films").upsert(dataForm).select("id");
     if (error) node.setErrors([error.message])
     else {
         console.log("data :",data);
@@ -19,9 +19,9 @@ async function upsertMaison(dataForm: any, node: { setErrors: (arg0: any[]) => v
 }
 
 if (route.params.id) {
-    const { data, error } = await supabase.from("Maison").select("*").eq("id", route.params.id).single();
+    const { data, error } = await supabase.from("Films").select("*").eq("id", route.params.id).single();
     if (error) console.error(error);
-    else maison.value = data;
+    else films.value = data;
 }
 </script>
 
@@ -31,10 +31,10 @@ if (route.params.id) {
             <h2 class="text-2xl">
                 Résultat (Prévisualisation)
             </h2>
-            <AfficheMaison v-bind="maison" />
+            <AfficheFilms v-bind="films" />
         </div>
         <div class="p-2">
-            <FormKit @submit="upsertMaison" type="form" v-model="maison"
+            <FormKit @submit="upsertFilms" type="form" v-model="films"
             :config="{
                 classes: {
                     input: 'p-1 rounded border-gray-300 shadow-sm border',

@@ -8,6 +8,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 // @ts-ignore
 globalThis.supabase = supabase
+
 export const user = ref(null);
 async function fetchUser() {
   const { data } = await supabase.auth.getUser();
