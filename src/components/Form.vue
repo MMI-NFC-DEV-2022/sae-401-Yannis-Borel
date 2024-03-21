@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "@vue/reactivity";
-import AfficheFilms from "@/components/AfficheFilms.vue";
+import AfficheFilm from "@/components/AfficheFilm.vue";
 import { FormKit } from "@formkit/vue";
 import { supabase } from "@/supabase";
 import { useRouter, useRoute } from "vue-router";
@@ -9,7 +9,7 @@ const router = useRouter();
 const films = ref ({});
 const route = useRoute('/maisons/edit/[[id]]');
 
-async function upsertFilms(dataForm: any, node: { setErrors: (arg0: any[]) => void; }) {
+async function upsertFilm(dataForm: any, node: { setErrors: (arg0: any[]) => void; }) {
     const { data, error } = await supabase.from("Films").upsert(dataForm).select("id");
     if (error) node.setErrors([error.message])
     else {
@@ -31,10 +31,10 @@ if (route.params.id) {
             <h2 class="text-2xl">
                 Résultat (Prévisualisation)
             </h2>
-            <AfficheFilms v-bind="films" />
+            <AfficheFilm v-bind="films" />
         </div>
         <div class="p-2">
-            <FormKit @submit="upsertFilms" type="form" v-model="films"
+            <FormKit @submit="upsertFilm" type="form" v-model="films"
             :config="{
                 classes: {
                     input: 'p-1 rounded border-gray-300 shadow-sm border',
@@ -42,14 +42,10 @@ if (route.params.id) {
                     outer: 'py-2',
                     },
                 }">
-                <FormKit name="nomMaison" label="nom de la maison" />
-                <FormKit name="adresse" label="adresse" />
-                <FormKit name="prix" type="number" label="prix" />
-                <FormKit name="favori" type="checkbox" label="mettre en valeur" />
-                <FormKit name="nbrChambres" type="number" label="nombre de chambres" />
-                <FormKit name="nbrSDB" type="number" label="nombre de salle de bain" />
-                <FormKit name="surface" label="surface" />
-                <FormKit name="image" label="image" />
+                <FormKit name="titre_film" label="Titre du film" />
+                <FormKit name="description_film" label="Description du film" />
+                <FormKit name="note_film" type="number" label="Note /5" />
+                <FormKit name="images" label="Images du film" />
             </FormKit>
         </div>
     </div>

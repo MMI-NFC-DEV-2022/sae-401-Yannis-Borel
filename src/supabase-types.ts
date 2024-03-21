@@ -9,6 +9,33 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      Acteur: {
+        Row: {
+          dace_deces: string | null
+          date_de_naissance: string | null
+          id: number
+          image_acteur: string | null
+          nationaliter_acteur: string | null
+          nom_acteur: string | null
+        }
+        Insert: {
+          dace_deces?: string | null
+          date_de_naissance?: string | null
+          id?: number
+          image_acteur?: string | null
+          nationaliter_acteur?: string | null
+          nom_acteur?: string | null
+        }
+        Update: {
+          dace_deces?: string | null
+          date_de_naissance?: string | null
+          id?: number
+          image_acteur?: string | null
+          nationaliter_acteur?: string | null
+          nom_acteur?: string | null
+        }
+        Relationships: []
+      }
       Agent: {
         Row: {
           id: number
@@ -71,6 +98,24 @@ export type Database = {
         }
         Relationships: []
       }
+      Collection: {
+        Row: {
+          id: number
+          image_collection: string | null
+          titre_collection: string | null
+        }
+        Insert: {
+          id?: number
+          image_collection?: string | null
+          titre_collection?: string | null
+        }
+        Update: {
+          id?: number
+          image_collection?: string | null
+          titre_collection?: string | null
+        }
+        Relationships: []
+      }
       Commune: {
         Row: {
           id: number
@@ -86,18 +131,219 @@ export type Database = {
         }
         Relationships: []
       }
+      film_acteur: {
+        Row: {
+          acteur: number
+          film: number
+        }
+        Insert: {
+          acteur: number
+          film?: number
+        }
+        Update: {
+          acteur?: number
+          film?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_film_acteur_acteur_fkey"
+            columns: ["acteur"]
+            isOneToOne: false
+            referencedRelation: "Acteur"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "public_film_acteur_film_fkey"
+            columns: ["film"]
+            isOneToOne: false
+            referencedRelation: "Films"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      film_collection: {
+        Row: {
+          collection: number
+          film: number
+        }
+        Insert: {
+          collection: number
+          film?: number
+        }
+        Update: {
+          collection?: number
+          film?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_film_collection_collection_fkey"
+            columns: ["collection"]
+            isOneToOne: false
+            referencedRelation: "Collection"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "public_film_collection_film_fkey"
+            columns: ["film"]
+            isOneToOne: false
+            referencedRelation: "Films"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      film_genre: {
+        Row: {
+          film: number
+          genre: number
+        }
+        Insert: {
+          film?: number
+          genre: number
+        }
+        Update: {
+          film?: number
+          genre?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_film_genre_film_fkey"
+            columns: ["film"]
+            isOneToOne: false
+            referencedRelation: "Films"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "public_film_genre_genre_fkey"
+            columns: ["genre"]
+            isOneToOne: false
+            referencedRelation: "Genre"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      film_plateforme: {
+        Row: {
+          film: number
+          plateforme: number
+        }
+        Insert: {
+          film?: number
+          plateforme: number
+        }
+        Update: {
+          film?: number
+          plateforme?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_film_plateforme_film_fkey"
+            columns: ["film"]
+            isOneToOne: false
+            referencedRelation: "Films"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "public_film_plateforme_plateforme_fkey"
+            columns: ["plateforme"]
+            isOneToOne: false
+            referencedRelation: "Plateforme"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      film_support: {
+        Row: {
+          film: number
+          support: number
+        }
+        Insert: {
+          film?: number
+          support: number
+        }
+        Update: {
+          film?: number
+          support?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_film_support_film_fkey"
+            columns: ["film"]
+            isOneToOne: false
+            referencedRelation: "Films"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "public_film_support_support_fkey"
+            columns: ["support"]
+            isOneToOne: false
+            referencedRelation: "Support"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      film_variante: {
+        Row: {
+          film: number
+          variante: number
+        }
+        Insert: {
+          film: number
+          variante: number
+        }
+        Update: {
+          film?: number
+          variante?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_film_variante_film_fkey"
+            columns: ["film"]
+            isOneToOne: false
+            referencedRelation: "Films"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "public_film_variante_variante_fkey"
+            columns: ["variante"]
+            isOneToOne: false
+            referencedRelation: "Variante"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       Films: {
         Row: {
+          description_film: string | null
           id: number
           images: string | null
+          titre_film: string | null
+        }
+        Insert: {
+          description_film?: string | null
+          id?: number
+          images?: string | null
+          titre_film?: string | null
+        }
+        Update: {
+          description_film?: string | null
+          id?: number
+          images?: string | null
+          titre_film?: string | null
+        }
+        Relationships: []
+      }
+      Genre: {
+        Row: {
+          id: number
+          libelle: string
         }
         Insert: {
           id?: number
-          images?: string | null
+          libelle: string
         }
         Update: {
           id?: number
-          images?: string | null
+          libelle?: string
         }
         Relationships: []
       }
@@ -165,6 +411,30 @@ export type Database = {
           },
         ]
       }
+      Plateforme: {
+        Row: {
+          description: string | null
+          id: number
+          image_plateforme: string | null
+          plateforme_prix: number | null
+          titre_plateforme: string | null
+        }
+        Insert: {
+          description?: string | null
+          id?: number
+          image_plateforme?: string | null
+          plateforme_prix?: number | null
+          titre_plateforme?: string | null
+        }
+        Update: {
+          description?: string | null
+          id?: number
+          image_plateforme?: string | null
+          plateforme_prix?: number | null
+          titre_plateforme?: string | null
+        }
+        Relationships: []
+      }
       Quartier: {
         Row: {
           id: number
@@ -197,6 +467,42 @@ export type Database = {
             referencedColumns: ["id_Commune"]
           },
         ]
+      }
+      Support: {
+        Row: {
+          id: number
+          image_support: string | null
+          prix_support: number | null
+          titre_support: string | null
+        }
+        Insert: {
+          id?: number
+          image_support?: string | null
+          prix_support?: number | null
+          titre_support?: string | null
+        }
+        Update: {
+          id?: number
+          image_support?: string | null
+          prix_support?: number | null
+          titre_support?: string | null
+        }
+        Relationships: []
+      }
+      Variante: {
+        Row: {
+          id: number
+          titre_variante: string | null
+        }
+        Insert: {
+          id?: number
+          titre_variante?: string | null
+        }
+        Update: {
+          id?: number
+          titre_variante?: string | null
+        }
+        Relationships: []
       }
     }
     Views: {
