@@ -7,14 +7,14 @@ import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
 const films = ref ({});
-const route = useRoute('/maisons/edit/[[id]]');
+const route = useRoute('/films/edit/[[id]]');
 
 async function upsertFilm(dataForm: any, node: { setErrors: (arg0: any[]) => void; }) {
     const { data, error } = await supabase.from("Films").upsert(dataForm).select("id");
     if (error) node.setErrors([error.message])
     else {
         console.log("data :",data);
-        router.push({name:"/maisons/edit/[[id]]", params:{id: data[0].id}});
+        router.push({name:"/films/edit/[[id]]", params:{id: data[0].id}});
     }
 }
 

@@ -313,21 +313,33 @@ export type Database = {
       }
       Films: {
         Row: {
+          banniere_film: string | null
+          date_film: string | null
           description_film: string | null
           id: number
           images: string | null
+          nom_realisateur: string | null
+          note_film: number | null
           titre_film: string | null
         }
         Insert: {
+          banniere_film?: string | null
+          date_film?: string | null
           description_film?: string | null
           id?: number
           images?: string | null
+          nom_realisateur?: string | null
+          note_film?: number | null
           titre_film?: string | null
         }
         Update: {
+          banniere_film?: string | null
+          date_film?: string | null
           description_film?: string | null
           id?: number
           images?: string | null
+          nom_realisateur?: string | null
+          note_film?: number | null
           titre_film?: string | null
         }
         Relationships: []

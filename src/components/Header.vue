@@ -23,38 +23,38 @@
                     </svg>
                 </button>
             </div>
-            <div class="hidden md:block">
+            <div class="hidden md:block ">
                 <div class="flex space-x-4">
                     <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                         <li>
                             <RouterLink to="/"
-                                class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                                class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-2 dark:text-white"
                                 aria-current="page">Accueil</RouterLink>
                         </li>
                         <li>
                             <RouterLink to="/about"
-                                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+                                class="block py-2 pr-4 pl-3 text-white">
                                 About</RouterLink>
                         </li>
                         <li>
                             <RouterLink to="/simple"
-                                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+                                class="block py-2 pr-4 pl-3 text-white">
                                 Simple</RouterLink>
                         </li>
                         <li>
-                            <RouterLink to="/maisons"
-                                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+                            <RouterLink to="/films"
+                                class="block py-2 pr-4 pl-3 text-white ">
                                 Films</RouterLink>
                         </li>
                         <li>
-                            <RouterLink to="/maisons/edit"
-                                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+                            <RouterLink to="/films/edit"
+                                class="block py-2 pr-4 pl-3 text-white">
                                 Créer des films</RouterLink>
                         </li>
                     </ul>
                     <div>
                         <button
-                            class="block py-2 pr-4 pl-3 text-white rounded-full bg-blue-600 lg:border-0 lg:hover:text-primary-700 lg:p-0 ">
+                            class="block text-white rounded-full bg-[#D93278] lg:border-0 lg:hover:text-primary-700 lg:p-2 ">
                             <RouterLink to="/login-logout">Se connecter</RouterLink>
                         </button>
                     </div>
@@ -82,12 +82,12 @@
                             Simple</RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/maisons"
+                        <RouterLink to="/films"
                             class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
                             Films</RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/maisons/edit"
+                        <RouterLink to="/films/edit"
                             class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
                             Créer des films</RouterLink>
                     </li>

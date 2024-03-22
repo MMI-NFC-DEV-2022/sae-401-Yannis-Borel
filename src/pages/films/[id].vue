@@ -3,13 +3,18 @@ import { useRoute } from 'vue-router/auto';
 import { supabase } from '@/supabase';
 import AfficheSingle from '@/components/AfficheSingle.vue';
 
-const route = useRoute('/maisons/[id]');
+const route = useRoute('/films/[id]');
 
 let {data : film, error} = await supabase
     .from('Films')
     .select(`
     *,
-    Acteur(*)
+    Acteur(*),
+    Genre(*),
+    Collection(*),
+    Support(*),
+    Plateforme(*),
+    Variante(*)
     `)
     .eq('id', route.params.id)
     .single();
@@ -18,7 +23,7 @@ let {data : film, error} = await supabase
         console.error('error', error);
     }
 
-console.log("dans maisons id : ",film);
+console.log("dans films id : ",film);
 </script>
 
 <template>
