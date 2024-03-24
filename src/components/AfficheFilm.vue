@@ -2,7 +2,8 @@
 import { defineProps } from 'vue';
 import type { Database, Tables } from '@/supabase-types';
 
-const props = defineProps <Database["public"]["Tables"]["Films"]["Row"] & {Acteur:Tables<'Acteur'>[]} & {Genre:Tables<'Genre'>[]}>()
+const props = defineProps<Database["public"]["Tables"]["Films"]["Row"] & { Acteur: Tables<'Acteur'>[] } & { Collection: Tables<'Collection'>[] } & { Plateforme: Tables<'Plateforme'>[] } & { Support: Tables<'Support'>[] } & { Variante: Tables<'Variante'>[] }>();
+
 console.log("props reçuent par AfficheFilm : ",props);
 
 </script>
@@ -16,7 +17,7 @@ console.log("props reçuent par AfficheFilm : ",props);
           class="mx-20 mb-20 bg-gray-300 w-[50%] rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out ">
           <img :src="images ?? undefined" class="h-auto rounded-t-xl" />
           <div class="text-slate-700 p-4">
-            <h3 class="text-xl font-semibold mb-2">{{ titre_film }}</h3>
+            <h3 class="text-xl sm:text font-semibold mb-2">{{ titre_film }}</h3>
             <div class="flex pl-2 pb-2 h-auto">
               <div v-for="n in note_film ?? 0" class="text-white">
                 <svg class="w-5 h-5 fill-current text-[#D93278]" viewBox="0 0 24 24">

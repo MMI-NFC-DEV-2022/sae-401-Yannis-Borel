@@ -11,6 +11,7 @@ export type Database = {
     Tables: {
       Acteur: {
         Row: {
+          biographie_acteur: string | null
           dace_deces: string | null
           date_de_naissance: string | null
           id: number
@@ -19,6 +20,7 @@ export type Database = {
           nom_acteur: string | null
         }
         Insert: {
+          biographie_acteur?: string | null
           dace_deces?: string | null
           date_de_naissance?: string | null
           id?: number
@@ -27,6 +29,7 @@ export type Database = {
           nom_acteur?: string | null
         }
         Update: {
+          biographie_acteur?: string | null
           dace_deces?: string | null
           date_de_naissance?: string | null
           id?: number
@@ -425,24 +428,30 @@ export type Database = {
       }
       Plateforme: {
         Row: {
-          description: string | null
+          description_deux: string | null
+          description_trois: string | null
+          description_une: string | null
           id: number
           image_plateforme: string | null
-          plateforme_prix: number | null
+          plateforme_prix: string | null
           titre_plateforme: string | null
         }
         Insert: {
-          description?: string | null
+          description_deux?: string | null
+          description_trois?: string | null
+          description_une?: string | null
           id?: number
           image_plateforme?: string | null
-          plateforme_prix?: number | null
+          plateforme_prix?: string | null
           titre_plateforme?: string | null
         }
         Update: {
-          description?: string | null
+          description_deux?: string | null
+          description_trois?: string | null
+          description_une?: string | null
           id?: number
           image_plateforme?: string | null
-          plateforme_prix?: number | null
+          plateforme_prix?: string | null
           titre_plateforme?: string | null
         }
         Relationships: []
@@ -482,21 +491,33 @@ export type Database = {
       }
       Support: {
         Row: {
+          description_deux: string | null
+          description_trois: string | null
+          description_une: string | null
           id: number
           image_support: string | null
-          prix_support: number | null
+          lien_externe: string | null
+          prix_support: string | null
           titre_support: string | null
         }
         Insert: {
+          description_deux?: string | null
+          description_trois?: string | null
+          description_une?: string | null
           id?: number
           image_support?: string | null
-          prix_support?: number | null
+          lien_externe?: string | null
+          prix_support?: string | null
           titre_support?: string | null
         }
         Update: {
+          description_deux?: string | null
+          description_trois?: string | null
+          description_une?: string | null
           id?: number
           image_support?: string | null
-          prix_support?: number | null
+          lien_externe?: string | null
+          prix_support?: string | null
           titre_support?: string | null
         }
         Relationships: []
