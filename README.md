@@ -34,7 +34,7 @@ Bouton sponsorisé pour accéder à la plateforme de streaming ou d'achat
 Possibilité de laisser des commentaires (non-fonctionnelle)
 
 Page Ajouter des Films
-URL: [/ajouter-film](https://ybfilms.yannisborel.fr/films/edit)
+URL: [/ajouter-film]( https://ybfilms.yannisborel.fr/films/edit)
 Fonctionnalités:
 Formulaire pour ajouter manuellement des films dans la base de données
 
