@@ -433,6 +433,7 @@ export type Database = {
           description_une: string | null
           id: number
           image_plateforme: string | null
+          lien_externe: string | null
           plateforme_prix: string | null
           titre_plateforme: string | null
         }
@@ -442,6 +443,7 @@ export type Database = {
           description_une?: string | null
           id?: number
           image_plateforme?: string | null
+          lien_externe?: string | null
           plateforme_prix?: string | null
           titre_plateforme?: string | null
         }
@@ -451,6 +453,7 @@ export type Database = {
           description_une?: string | null
           id?: number
           image_plateforme?: string | null
+          lien_externe?: string | null
           plateforme_prix?: string | null
           titre_plateforme?: string | null
         }
